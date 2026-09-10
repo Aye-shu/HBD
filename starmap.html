@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>The Sky The Night You Were Born</title>
+
+    <link
+        rel="stylesheet"
+        href="starmap.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND VIDEO
+    ====================================================== -->
+
+    <div class="background">
+
+        <video
+            id="skyVideo"
+            class="background-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+        >
+
+            <source
+                src="./Untitled design (4).mp4"
+                type="video/mp4"
+            >
+
+        </video>
+
+    </div>
+
+
+    <!-- Cinematic overlays -->
+
+    <div class="blue-overlay"></div>
+
+    <div class="top-gradient"></div>
+
+    <div class="bottom-gradient"></div>
+
+    <div class="vignette"></div>
+
+
+    <!-- =====================================================
+         MAIN SCENE
+    ====================================================== -->
+
+    <main
+        id="skyScene"
+        class="sky-scene"
+    >
+
+
+        <!-- HEADER -->
+
+        <header class="sky-header">
+
+            <div class="small-heading">
+                THE SKY THE NIGHT YOU WERE BORN
+            </div>
+
+
+            <h1>
+                12 September, 2001
+            </h1>
+
+
+            <div class="location">
+                ASSAM, INDIA
+            </div>
+
+
+            <div class="drag-hint">
+
+                <span>✧</span>
+
+                CLICK THE BLINKING STARS
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONSTELLATION 1
+        ================================================== -->
+
+        <button
+            class="constellation constellation-one"
+            data-name="The Wanderer"
+            data-text="For someone whose presence can make even an ordinary night feel like an adventure."
+        >
+
+            <span class="star-symbol">
+                ✦
+            </span>
+
+            <span class="star-label">
+                THE WANDERER
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             CONSTELLATION 2
+        ================================================== -->
+
+        <button
+            class="constellation constellation-two"
+            data-name="The Dreamer"
+            data-text="A little collection of stars for all the dreams, journeys and beautiful moments still waiting for you."
+        >
+
+            <span class="star-symbol">
+                ✦
+            </span>
+
+            <span class="star-label">
+                THE DREAMER
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             CONSTELLATION 3
+        ================================================== -->
+
+        <button
+            class="constellation constellation-three"
+            data-name="The Guiding Light"
+            data-text="Some lights don't simply shine. They make you feel like you've found your way home."
+        >
+
+            <span class="star-symbol">
+                ✦
+            </span>
+
+            <span class="star-label">
+                THE GUIDING LIGHT
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             SPECIAL STAR
+        ================================================== -->
+
+        <button
+            id="specialStar"
+            class="special-star"
+            aria-label="A special star"
+        >
+
+            <span>✦</span>
+
+            <div class="special-label">
+                ✦
+            </div>
+
+        </button>
+
+
+        <!-- =================================================
+             CONSTELLATION INFO
+        ================================================== -->
+
+        <section
+            id="infoCard"
+            class="info-card"
+        >
+
+            <button
+                id="closeInfo"
+                class="close-info"
+            >
+                ×
+            </button>
+
+
+            <div class="info-line">
+                CONSTELLATION
+            </div>
+
+
+            <h2 id="infoTitle"></h2>
+
+
+            <p id="infoText"></p>
+
+        </section>
+
+
+        <!-- =================================================
+             SPECIAL LOVE MESSAGE
+        ================================================== -->
+
+        <section
+            id="loveMessage"
+            class="love-message"
+        >
+
+            <div class="love-star">
+                ✦
+            </div>
+
+
+            <div class="love-line"></div>
+
+
+            <p>
+
+                <span>
+                    Out of all these stars…
+                </span>
+
+                <br>
+
+                somehow the universe decided
+                <br>
+
+                to give me you.
+
+            </p>
+
+
+            <div class="heart">
+                ♥
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONTINUE
+        ================================================== -->
+
+        <button
+            id="continueButton"
+            class="continue-button"
+        >
+
+            <span>
+                CONTINUE
+            </span>
+
+            <strong>
+                →
+            </strong>
+
+        </button>
+
+
+    </main>
+
+
+    <script src="starmap.js"></script>
+
+</body>
+
+</html>

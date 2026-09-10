@@ -1,0 +1,634 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #01050f;
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+}
+
+
+/* =========================================
+   CANVAS
+========================================= */
+
+#heartCanvas {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    z-index: 1;
+
+    touch-action: none;
+}
+
+
+/* =========================================
+   VIGNETTE
+========================================= */
+
+.vignette {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 25%,
+            rgba(0, 5, 18, 0.15) 55%,
+            rgba(0, 2, 10, 0.82) 100%
+        );
+}
+
+
+/* =========================================
+   AMBIENT BLUE LIGHT
+========================================= */
+
+.ambient-glow {
+    position: fixed;
+
+    width: 70vw;
+    height: 70vw;
+
+    max-width: 900px;
+    max-height: 900px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(25, 100, 190, 0.12),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.heart-intro {
+    position: fixed;
+
+    top: 8vh;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    z-index: 10;
+
+    width: 90%;
+
+    pointer-events: none;
+}
+
+
+.small-label {
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: rgba(180, 220, 255, 0.72);
+
+    margin-bottom: 18px;
+}
+
+
+.heart-intro h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 300;
+
+    font-size: clamp(38px, 5vw, 72px);
+
+    line-height: 0.95;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 25px rgba(80, 170, 255, 0.35),
+        0 0 70px rgba(50, 120, 255, 0.18);
+}
+
+
+.intro-line {
+    width: 45px;
+    height: 1px;
+
+    margin: 22px auto 17px;
+
+    background: rgba(180, 220, 255, 0.55);
+
+    box-shadow:
+        0 0 12px rgba(120, 190, 255, 0.7);
+}
+
+
+.heart-intro p {
+    font-size: clamp(16px, 1.5vw, 21px);
+
+    line-height: 1.4;
+
+    color: rgba(235, 245, 255, 0.65);
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   INTERACTION HINT
+========================================= */
+
+.interaction-hint {
+    position: fixed;
+
+    left: 50%;
+    bottom: 7vh;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(210, 235, 255, 0.65);
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    transition: opacity 1s ease;
+}
+
+
+.hint-orb {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #b9ddff;
+
+    box-shadow:
+        0 0 8px #8bc9ff,
+        0 0 20px rgba(100, 180, 255, 0.8);
+
+    /* MOVES ONLY — NO BLINKING */
+    animation: hintMove 3s infinite ease-in-out;
+}
+
+
+@keyframes hintMove {
+
+    0%,
+    100% {
+        transform: translateX(-7px);
+    }
+
+    50% {
+        transform: translateX(7px);
+    }
+
+}
+
+
+/* =========================================
+   REASON CONTAINER
+========================================= */
+
+.reason-container {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+
+    width: min(520px, 86vw);
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+.reason-card {
+    padding: 28px 35px 25px;
+
+    text-align: center;
+
+    border: 1px solid rgba(170, 215, 255, 0.22);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 45, 80, 0.58),
+            rgba(2, 10, 24, 0.72)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 0 40px rgba(40, 130, 255, 0.08),
+        inset 0 0 25px rgba(120, 190, 255, 0.035);
+}
+
+
+.reason-number {
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: rgba(150, 205, 255, 0.65);
+
+    margin-bottom: 14px;
+}
+
+
+.reason-line {
+    width: 35px;
+    height: 1px;
+
+    margin: 0 auto 18px;
+
+    background: rgba(160, 215, 255, 0.4);
+}
+
+
+.reason-card p {
+    font-size: clamp(20px, 2vw, 28px);
+
+    line-height: 1.35;
+
+    font-weight: 300;
+
+    color: rgba(250, 252, 255, 0.94);
+}
+
+
+.reason-heart {
+    margin-top: 17px;
+
+    font-size: 17px;
+
+    color: rgba(140, 200, 255, 0.9);
+
+    text-shadow:
+        0 0 15px rgba(100, 190, 255, 0.9);
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-container {
+    position: fixed;
+
+    top: 5vh;
+    right: 5vw;
+
+    z-index: 15;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: rgba(190, 220, 255, 0.55);
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.final-message {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+.final-small {
+    font-family: "Cinzel", serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: rgba(180, 220, 255, 0.55);
+
+    margin-bottom: 20px;
+}
+
+
+.final-message h2 {
+    font-size: clamp(36px, 5vw, 65px);
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 30px rgba(100, 190, 255, 0.45);
+}
+
+
+.final-heart {
+    margin-top: 25px;
+
+    font-size: 28px;
+
+    color: #b9e2ff;
+
+    text-shadow:
+        0 0 15px #79c7ff,
+        0 0 40px #368ee0,
+        0 0 80px rgba(60, 150, 255, 0.7);
+
+    animation: finalHeartPulse 2s infinite ease-in-out;
+}
+
+
+@keyframes finalHeartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+/* =========================================
+   NEXT PAGE
+========================================= */
+
+.next-page {
+    position: fixed;
+
+    left: 50%;
+    bottom: 7vh;
+
+    transform: translate(-50%, 30px);
+
+    z-index: 40;
+
+    text-align: center;
+
+    width: min(600px, 90vw);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.next-page p {
+    margin-bottom: 17px;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    color: rgba(225, 240, 255, 0.7);
+}
+
+
+.next-page button {
+    position: relative;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(175, 220, 255, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 90, 150, 0.4),
+            rgba(5, 20, 45, 0.75)
+        );
+
+    color: white;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 25px rgba(70, 160, 255, 0.12);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+.next-page button:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(210, 235, 255, 0.8);
+
+    box-shadow:
+        0 0 35px rgba(70, 170, 255, 0.3);
+}
+
+
+.arrow {
+    display: inline-block;
+
+    margin-left: 10px;
+
+    font-size: 17px;
+
+    transition: transform 0.3s ease;
+}
+
+
+.next-page button:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   SOUND
+========================================= */
+
+.sound-button {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    z-index: 50;
+
+    border: 1px solid rgba(170, 215, 255, 0.25);
+
+    background: rgba(4, 15, 30, 0.5);
+
+    color: rgba(200, 230, 255, 0.7);
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .heart-intro {
+        top: 7vh;
+    }
+
+    .heart-intro h1 {
+        font-size: 40px;
+    }
+
+    .heart-intro p {
+        font-size: 16px;
+    }
+
+    .interaction-hint {
+        bottom: 8vh;
+
+        font-size: 12px;
+    }
+
+    .reason-card {
+        padding: 23px 22px;
+    }
+
+    .reason-card p {
+        font-size: 21px;
+    }
+
+    .progress-container {
+        top: 3vh;
+        right: 5vw;
+    }
+
+    .next-page {
+        bottom: 5vh;
+    }
+
+    .next-page button {
+        max-width: 90vw;
+
+        font-size: 9px;
+
+        padding: 14px 18px;
+    }
+
+}
+
+/* =========================================
+   BACKGROUND VIDEO
+========================================= */
+
+.bg-video-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}

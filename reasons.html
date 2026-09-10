@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Thousand Little Reasons</title>
+
+    <link rel="stylesheet" href="reasons.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND IMAGE (added)
+    ====================================================== -->
+
+    <div class="bg-image-container">
+        <img 
+            src="./haseeb-jamil-3s85IxVDyXE-unsplash.jpg" 
+            alt="Background" 
+            class="bg-image"
+        >
+    </div>
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="background">
+
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-front"></div>
+
+        <div class="stars-background"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN PAGE
+    ====================================================== -->
+
+    <main class="reasons-page">
+
+        <header class="page-header">
+
+            <p class="eyebrow">
+                A little piece of my heart
+            </p>
+
+            <h1>
+                A Thousand Little Reasons
+            </h1>
+
+            <p class="subtitle">
+                If I tried to explain every reason I love you,
+                we'd be here forever.
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             CONSTELLATION
+        ================================================== -->
+
+        <section
+            class="constellation"
+            id="constellation"
+            aria-label="Reasons constellation"
+        >
+
+            <!-- Connecting lines -->
+
+            <svg
+                class="constellation-lines"
+                viewBox="0 0 1000 700"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+            >
+
+                <path d="M500 100 L350 190 L230 300 L300 430 L420 540 L500 620"/>
+                <path d="M500 100 L650 190 L770 300 L700 430 L580 540 L500 620"/>
+                <path d="M350 190 L650 190"/>
+                <path d="M230 300 L770 300"/>
+                <path d="M300 430 L700 430"/>
+                <path d="M420 540 L580 540"/>
+
+            </svg>
+
+
+            <!-- =================================================
+                 TEN REASON STARS
+            ================================================== -->
+
+            <button
+                class="reason-star star-1"
+                data-reason="You became a part of my life before I even realized
+    how much I needed you in it."
+                aria-label="Reason one"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-2"
+                data-reason="Even on difficult days, a little thought of you
+    can make everything feel softer."
+                aria-label="Reason two"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-3"
+                data-reason="Somehow, you can make me smile without even knowing
+    that you did it."
+                aria-label="Reason three"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-4"
+                data-reason="You remind me that love can feel like comfort,
+    friendship, laughter, and home all at once."
+                aria-label="Reason four"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-5"
+                data-reason="You make ordinary moments feel like memories I want to keep forever."
+                aria-label="Reason five"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-6"
+                data-reason="You somehow know when I need comfort before I know how to ask for it."
+                aria-label="Reason six"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-7"
+                data-reason="Your dreams matter to me, and I want to see you
+    achieve the things your heart quietly wishes for."
+                aria-label="Reason seven"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-8"
+                data-reason=" I hope that when life becomes heavy,
+    you remember that you never have to carry everything alone."
+                aria-label="Reason eight"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-9"
+                data-reason="If I could relive certain moments of my life,
+    I would choose the ones that had you in them."
+                aria-label="Reason nine"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <button
+                class="reason-star star-10"
+                data-reason="Somehow, after everything, my heart still finds its safest place in you."
+                aria-label="Reason ten"
+            >
+                <span>✦</span>
+            </button>
+
+
+            <!-- Center -->
+
+            <div
+                class="constellation-center"
+                id="constellationCenter"
+            >
+
+                <div class="center-heart">
+                    ♡
+                </div>
+
+                <p>
+                    There are still so many
+                    I could name...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REASON MESSAGE
+        ================================================== -->
+
+        <div
+            class="reason-message"
+            id="reasonMessage"
+            aria-live="polite"
+        >
+
+            <div class="message-glow"></div>
+
+            <div class="message-star">
+                ✦
+            </div>
+
+            <p id="reasonText"></p>
+
+        </div>
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <div class="progress">
+
+            <span id="openedCount">
+                0
+            </span>
+
+            <span class="progress-divider">
+                /
+            </span>
+
+            <span>
+                10
+            </span>
+
+            <span class="progress-label">
+                little reasons discovered
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             FINAL MESSAGE
+        ================================================== -->
+
+        <section
+            class="final-message"
+            id="finalMessage"
+        >
+
+            <div class="final-star">
+                ✦
+            </div>
+
+            <h2>
+                You could give me<br>
+                a thousand stars...
+            </h2>
+
+            <p>
+                I'd still choose you.
+            </p>
+
+            <div class="final-heart">
+                ♡
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NEXT PAGE
+        ================================================== -->
+
+        <div
+            class="next-container"
+            id="nextContainer"
+        >
+
+            <button
+                class="next-button"
+                id="nextButton"
+            >
+
+                <span>
+                    Continue
+                </span>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="reasons.js"></script>
+
+</body>
+</html>

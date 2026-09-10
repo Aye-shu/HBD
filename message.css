@@ -1,0 +1,770 @@
+/* ========================================================
+   RESET
+======================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #020813;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+body.page-leaving {
+    opacity: 0;
+    transform: scale(1.04);
+}
+
+
+/* ========================================================
+   BACKGROUND VIDEO
+======================================================== */
+.video-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.garden-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.04);
+    filter: brightness(0.67) saturate(0.78) contrast(1.08);
+    animation: slowMountainMovement 30s ease-in-out infinite alternate;
+}
+
+@keyframes slowMountainMovement {
+    from {
+        transform: scale(1.04);
+    }
+    to {
+        transform: scale(1.09);
+    }
+}
+
+
+/* ========================================================
+   BLUE ATMOSPHERE
+======================================================== */
+.blue-atmosphere {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(79, 156, 255, 0.19), transparent 55%),
+        linear-gradient(180deg, rgba(1, 12, 32, 0.42), rgba(3, 26, 55, 0.08) 50%, rgba(0, 5, 18, 0.66));
+}
+
+
+/* ========================================================
+   MIST
+======================================================== */
+.mist-layer {
+    position: fixed;
+    inset: -20%;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.25;
+    background:
+        radial-gradient(ellipse at 25% 70%, rgba(113, 184, 255, 0.18), transparent 32%),
+        radial-gradient(ellipse at 75% 60%, rgba(109, 179, 255, 0.16), transparent 34%);
+    filter: blur(35px);
+    animation: mistMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes mistMove {
+    from {
+        transform: translateX(-3%);
+    }
+    to {
+        transform: translateX(3%);
+    }
+}
+
+
+/* ========================================================
+   VIGNETTE
+======================================================== */
+.dark-vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at center, transparent 34%, rgba(0, 3, 13, 0.35) 66%, rgba(0, 2, 9, 0.85) 100%);
+}
+
+
+/* ========================================================
+   FIREFLIES
+======================================================== */
+.fireflies {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(190, 224, 255, 0.95);
+    box-shadow: 0 0 5px rgba(167, 217, 255, 0.9), 0 0 16px rgba(89, 173, 255, 0.65);
+    animation: fireflyFloat var(--duration) ease-in-out infinite alternate;
+    animation-delay: var(--delay);
+}
+
+@keyframes fireflyFloat {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.55);
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(var(--move-x), var(--move-y), 0) scale(1.35);
+        opacity: 0.25;
+    }
+}
+
+
+/* ========================================================
+   HEADER
+======================================================== */
+.garden-header {
+    position: fixed;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.36em;
+    color: rgba(211, 235, 255, 0.65);
+    margin-bottom: 12px;
+}
+
+.garden-header h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color: rgba(247, 251, 255, 0.97);
+    text-shadow: 0 0 20px rgba(102, 181, 255, 0.48), 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.garden-header p {
+    margin-top: 8px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(16px, 2vw, 21px);
+    line-height: 1.35;
+    color: rgba(226, 239, 255, 0.73);
+}
+
+.scroll-hint {
+    margin-top: 17px;
+    font-size: 7px;
+    letter-spacing: 0.27em;
+    color: rgba(223, 239, 255, 0.53);
+}
+
+.scroll-hint span {
+    color: rgba(245, 215, 147, 0.85);
+    margin: 0 7px;
+}
+
+
+/* ========================================================
+   MEMORY COUNTER
+======================================================== */
+.memory-counter {
+    position: fixed;
+    right: 4%;
+    top: 6%;
+    z-index: 30;
+    text-align: right;
+    color: rgba(229, 242, 255, 0.75);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+}
+
+.memory-counter small {
+    display: block;
+    margin-top: 4px;
+    font-size: 6px;
+    letter-spacing: 0.23em;
+    color: rgba(210, 232, 255, 0.43);
+}
+
+
+/* ========================================================
+   GARDEN
+======================================================== */
+.garden {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+}
+
+
+/* ========================================================
+   MEMORY CARD
+======================================================== */
+.memory {
+    position: absolute;
+    width: 180px;
+    height: 245px;
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 15;
+    transform: translate(-50%, -50%);
+    transition: transform 0.6s cubic-bezier(.2, .8, .2, 1), filter 0.5s ease;
+}
+
+.memory:hover {
+    transform: translate(-50%, -50%) translateY(-10px) rotate(0deg) scale(1.05);
+}
+
+.memory-1 {
+    left: 20%;
+    top: 56%;
+    transform: translate(-50%, -50%) rotate(-6deg);
+}
+
+.memory-2 {
+    left: 38%;
+    top: 62%;
+    transform: translate(-50%, -50%) rotate(4deg);
+}
+
+.memory-3 {
+    left: 57%;
+    top: 57%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+.memory-4 {
+    left: 74%;
+    top: 61%;
+    transform: translate(-50%, -50%) rotate(7deg);
+}
+
+.memory-5 {
+    left: 88%;
+    top: 51%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.frame {
+    position: relative;
+    width: 100%;
+    height: 205px;
+    padding: 8px;
+    border: 1px solid rgba(225, 241, 255, 0.52);
+    border-radius: 7px;
+    background: rgba(224, 241, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), inset 0 0 25px rgba(190, 225, 255, 0.08), 0 0 25px rgba(92, 169, 255, 0.08);
+    overflow: hidden;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.9s ease;
+}
+
+.memory:hover .photo img {
+    transform: scale(1.08);
+}
+
+.glass-reflection {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(125deg, rgba(255, 255, 255, 0.25), transparent 22%, transparent 70%, rgba(255, 255, 255, 0.08));
+    opacity: 0.55;
+}
+
+.memory-number {
+    position: absolute;
+    bottom: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: rgba(232, 243, 255, 0.68);
+}
+
+.flower {
+    position: absolute;
+    left: 50%;
+    bottom: -31px;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom center;
+    opacity: 0;
+    color: #a9d6ff;
+    font-size: 27px;
+    text-shadow: 0 0 10px rgba(124, 198, 255, 0.9), 0 0 24px rgba(72, 145, 255, 0.6);
+    transition: transform 1s cubic-bezier(.17, .89, .32, 1.28), opacity 0.8s ease;
+}
+
+.memory.visited .flower {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+.memory.visited::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -16px;
+    width: 2px;
+    height: 25px;
+    background: rgba(123, 190, 137, 0.7);
+    transform: translateX(-50%);
+}
+
+/* ========================================================
+   MEMORY VIDEOS
+======================================================== */
+
+.photo {
+    position: relative;
+}
+
+.memory-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+}
+
+
+/* ========================================================
+   VIEWER MEMORY VIDEO
+======================================================== */
+
+.viewer-photo {
+    overflow: hidden;
+}
+
+/* --- FIX: Video now shows full without cropping --- */
+.viewer-memory-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* ========================================================
+   MEMORY VIEWER
+======================================================== */
+.memory-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    background: rgba(0, 5, 16, 0.84);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+
+.memory-viewer.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.viewer-content {
+    display: flex;
+    align-items: center;
+    gap: 6vw;
+    width: min(1050px, 92vw);
+    transform: scale(0.9) translateY(25px);
+    transition: transform 0.75s cubic-bezier(.2, .8, .2, 1);
+}
+
+.memory-viewer.open .viewer-content {
+    transform: scale(1) translateY(0);
+}
+
+.viewer-photo {
+    width: min(52vw, 560px);
+    height: min(68vh, 650px);
+    border: 1px solid rgba(227, 241, 255, 0.52);
+    padding: 10px;
+    background: rgba(210, 235, 255, 0.09);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65), 0 0 50px rgba(83, 165, 255, 0.1);
+}
+
+.viewer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.viewer-text {
+    flex: 1;
+    max-width: 400px;
+}
+
+.viewer-small {
+    font-size: 7px;
+    letter-spacing: 0.32em;
+    color: #91c9ff;
+    margin-bottom: 13px;
+}
+
+.viewer-text h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(38px, 5vw, 66px);
+    font-weight: 400;
+    line-height: 0.98;
+    color: rgba(248, 251, 255, 0.96);
+}
+
+.gold-line {
+    width: 55px;
+    height: 1px;
+    margin: 23px 0;
+    background: rgba(239, 211, 151, 0.72);
+}
+
+.viewer-text p {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(20px, 2.3vw, 27px);
+    line-height: 1.35;
+    color: rgba(226, 239, 255, 0.76);
+}
+
+.music-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 28px;
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: rgba(212, 234, 255, 0.53);
+}
+
+.music-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #a8d7ff;
+    box-shadow: 0 0 12px rgba(119, 195, 255, 0.9);
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%,
+    100% {
+        transform: scale(0.7);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+}
+
+.close-memory {
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(221, 239, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(4, 17, 37, 0.45);
+    color: rgba(239, 247, 255, 0.85);
+    font-size: 26px;
+    font-weight: 200;
+    cursor: pointer;
+    z-index: 10;
+}
+
+
+/* ========================================================
+   FINAL MESSAGE
+======================================================== */
+.final-message {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(1, 7, 19, 0.88);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+.final-message.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.final-stars {
+    font-size: 30px;
+    color: #f0d69b;
+    text-shadow: 0 0 25px #eac66d;
+    margin-bottom: 20px;
+}
+
+.final-small {
+    font-size: 7px;
+    letter-spacing: 0.35em;
+    color: rgba(212, 235, 255, 0.55);
+}
+
+.final-message h2 {
+    margin-top: 15px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(55px, 8vw, 105px);
+    font-weight: 300;
+    line-height: 0.88;
+    color: rgba(247, 251, 255, 0.96);
+    text-shadow: 0 0 35px rgba(95, 172, 255, 0.35);
+}
+
+.final-line {
+    width: 70px;
+    height: 1px;
+    margin: 28px auto;
+    background: rgba(238, 210, 150, 0.7);
+}
+
+.final-description {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(19px, 2.5vw, 28px);
+    line-height: 1.35;
+    color: rgba(225, 239, 255, 0.65);
+}
+
+.final-description span {
+    color: rgba(247, 251, 255, 0.92);
+}
+
+.continue-button {
+    margin-top: 36px;
+    min-width: 250px;
+    padding: 15px 25px;
+    border: 1px solid rgba(220, 238, 255, 0.55);
+    border-radius: 50px;
+    background: rgba(7, 25, 55, 0.5);
+    color: rgba(240, 248, 255, 0.93);
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.27em;
+    cursor: pointer;
+    backdrop-filter: blur(15px);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.continue-button span {
+    margin-left: 10px;
+    font-size: 17px;
+}
+
+.continue-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(100, 181, 255, 0.24);
+}
+
+
+/* ========================================================
+   MOBILE
+======================================================== */
+@media (max-width: 700px) {
+    .garden-header {
+        top: 5%;
+    }
+
+    .garden-header h1 {
+        font-size: 42px;
+    }
+
+    .garden-header p {
+        font-size: 16px;
+    }
+
+    .memory-counter {
+        right: 5%;
+        top: 4%;
+    }
+
+    .memory {
+        width: 125px;
+        height: 178px;
+    }
+
+    .frame {
+        height: 150px;
+        padding: 5px;
+    }
+
+    .memory-1 {
+        left: 20%;
+        top: 51%;
+    }
+
+    .memory-2 {
+        left: 50%;
+        top: 48%;
+    }
+
+    .memory-3 {
+        left: 80%;
+        top: 52%;
+    }
+
+    .memory-4 {
+        left: 33%;
+        top: 72%;
+    }
+
+    .memory-5 {
+        left: 67%;
+        top: 72%;
+    }
+
+    .viewer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    /* --- Mobile video container sized to show full video --- */
+    .viewer-photo {
+        width: 92vw;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        max-height: 55vh;
+        padding: 8px;
+    }
+
+    /* --- Video fills container without cropping --- */
+    .viewer-memory-video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .viewer-text {
+        width: 85vw;
+        text-align: center;
+    }
+
+    .gold-line {
+        margin: 16px auto;
+    }
+
+    .music-status {
+        justify-content: center;
+    }
+
+    .close-memory {
+        width: 38px;
+        height: 38px;
+        top: 3%;
+        right: 5%;
+    }
+
+    .final-message h2 {
+        font-size: 57px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .memory {
+        width: 100px;
+        height: 145px;
+    }
+
+    .frame {
+        height: 120px;
+        padding: 4px;
+    }
+
+    .memory-number {
+        font-size: 10px;
+        bottom: 5px;
+    }
+
+    .flower {
+        font-size: 20px;
+        bottom: -26px;
+    }
+
+    .viewer-photo {
+        width: 95vw;
+        aspect-ratio: 16 / 9;
+        max-height: 45vh;
+        padding: 6px;
+    }
+
+    .viewer-memory-video {
+        object-fit: contain;
+    }
+}

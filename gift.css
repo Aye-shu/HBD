@@ -1,0 +1,1834 @@
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    background: #01040b;
+
+    color: #f5f7fb;
+
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* ============================================================
+   WORLD
+============================================================ */
+
+.world {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center 48%,
+            rgba(8, 40, 78, 0.18),
+            transparent 42%
+        ),
+
+        linear-gradient(
+            180deg,
+            #000208 0%,
+            #020713 60%,
+            #01040a 100%
+        );
+
+    z-index: 0;
+}
+
+
+/* ============================================================
+   ROOM GLOW
+============================================================ */
+
+.room-glow {
+    position: absolute;
+
+    width: 70vw;
+    height: 55vh;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(20, 71, 125, 0.12),
+            transparent 65%
+        );
+
+    filter: blur(35px);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+
+/* ============================================================
+   STARS
+============================================================ */
+
+.stars {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.65) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(125,180,255,0.4) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        170px 170px,
+        270px 270px;
+
+    background-position:
+        20px 30px,
+        100px 80px;
+
+    opacity: 0.08;
+
+    animation:
+        starsDrift 50s linear infinite;
+}
+
+@keyframes starsDrift {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+
+/* ============================================================
+   FLOOR
+============================================================ */
+
+.floor {
+    position: absolute;
+
+    left: -10%;
+    right: -10%;
+
+    bottom: -30%;
+
+    height: 65%;
+
+    transform:
+        perspective(500px)
+        rotateX(65deg);
+
+    transform-origin: center top;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4, 16, 31, 0.55),
+            rgba(0, 3, 8, 0.98)
+        );
+
+    border-top:
+        1px solid
+        rgba(53, 95, 133, 0.08);
+}
+
+
+/* ============================================================
+   FLOOR GLOW
+============================================================ */
+
+.floor-glow {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 10%;
+
+    width: 500px;
+    height: 150px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(20, 105, 190, 0.14),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    opacity: 0.35;
+}
+
+
+/* ============================================================
+   PARTICLE CANVAS
+============================================================ */
+
+#particleCanvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 4;
+}
+
+
+/* ============================================================
+   PAGE
+============================================================ */
+
+.gift-page {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 10;
+}
+
+
+/* ============================================================
+   SECRET SCREEN
+============================================================ */
+
+.secret-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 20;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+.secret-screen.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.secret-container {
+
+    width: min(650px, 90vw);
+
+    transform:
+        translateY(-2vh);
+}
+
+
+/* ============================================================
+   SECRET SYMBOL
+============================================================ */
+
+.secret-symbol {
+
+    margin-bottom: 22px;
+
+    color: rgba(101, 174, 255, 0.7);
+
+    font-size: 19px;
+
+    animation:
+        symbolPulse 3s ease-in-out infinite;
+}
+
+@keyframes symbolPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+
+/* ============================================================
+   LABEL
+============================================================ */
+
+.secret-label {
+
+    margin-bottom: 15px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(188, 210, 235, 0.45);
+}
+
+
+/* ============================================================
+   HEADING
+============================================================ */
+
+.secret-container h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(36px, 5vw, 56px);
+
+    font-weight: 300;
+
+    line-height: 1.12;
+
+    color:
+        rgba(244, 248, 253, 0.95);
+
+    text-shadow:
+        0 0 35px rgba(91, 155, 221, 0.12);
+}
+
+
+/* ============================================================
+   DESCRIPTION
+============================================================ */
+
+.secret-description {
+
+    margin-top: 20px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(201, 217, 236, 0.55);
+}
+
+
+/* ============================================================
+   HINT
+============================================================ */
+
+.hint-box {
+
+    margin:
+        32px auto
+        28px;
+
+    width: min(440px, 90vw);
+
+    padding:
+        17px 25px;
+
+    border:
+        1px solid
+        rgba(107, 160, 210, 0.16);
+
+    background:
+        rgba(8, 22, 40, 0.35);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(32, 95, 150, 0.04);
+
+    backdrop-filter:
+        blur(8px);
+
+    border-radius: 3px;
+}
+
+
+.hint-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(162, 195, 228, 0.4);
+}
+
+
+.hint {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    color:
+        rgba(226, 237, 249, 0.82);
+
+    letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   CODE AREA
+============================================================ */
+
+.code-area label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+    color:
+        rgba(189, 211, 234, 0.4);
+}
+
+
+.input-wrapper {
+
+    width: min(430px, 90vw);
+
+    margin: auto;
+
+    display: flex;
+
+    border:
+        1px solid
+        rgba(127, 174, 219, 0.25);
+
+    background:
+        rgba(3, 12, 23, 0.65);
+
+    border-radius: 3px;
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.input-wrapper:focus-within {
+
+    border-color:
+        rgba(99, 170, 239, 0.6);
+
+    box-shadow:
+        0 0 25px
+        rgba(40, 119, 190, 0.12);
+}
+
+
+#secretCode {
+
+    flex: 1;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    padding:
+        15px 16px;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+}
+
+
+#secretCode::placeholder {
+
+    color:
+        rgba(180, 200, 220, 0.22);
+}
+
+
+#unlockButton {
+
+    border: none;
+
+    border-left:
+        1px solid
+        rgba(127, 174, 219, 0.18);
+
+    background:
+        rgba(30, 75, 115, 0.2);
+
+    color:
+        rgba(218, 235, 251, 0.75);
+
+    padding:
+        0 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+#unlockButton:hover {
+
+    background:
+        rgba(43, 105, 161, 0.35);
+
+    color: white;
+}
+
+
+/* ============================================================
+   FEEDBACK
+============================================================ */
+
+.feedback {
+
+    min-height: 25px;
+
+    margin-top: 12px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 17px;
+
+    color:
+        rgba(208, 225, 242, 0.7);
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/* ============================================================
+   ATTEMPT TEXT
+============================================================ */
+
+.attempt-counter {
+
+    margin-top: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        rgba(172, 196, 220, 0.27);
+}
+
+
+/* ============================================================
+   WRONG MESSAGE
+============================================================ */
+
+.wrong-message {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 70;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0, 4, 10, 0.72);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+
+.wrong-message.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.wrong-card {
+
+    width: min(420px, 88vw);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(115, 162, 207, 0.16);
+
+    background:
+        rgba(5, 17, 31, 0.92);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.55);
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.wrong-message.show .wrong-card {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.wrong-icon {
+
+    color:
+        rgba(93, 164, 236, 0.7);
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+}
+
+
+.wrong-card p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    line-height: 1.4;
+
+    color:
+        rgba(236, 243, 250, 0.88);
+}
+
+
+#tryAgainButton {
+
+    margin-top: 25px;
+
+    padding:
+        11px 21px;
+
+    border:
+        1px solid
+        rgba(107, 160, 210, 0.25);
+
+    background:
+        transparent;
+
+    color:
+        rgba(207, 227, 246, 0.7);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+#tryAgainButton:hover {
+
+    background:
+        rgba(57, 117, 169, 0.2);
+
+    color: white;
+}
+
+
+/* ============================================================
+   GIFT ROOM
+============================================================ */
+
+.gift-room {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+
+.gift-room.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* ============================================================
+   GIFT INTRO
+============================================================ */
+
+.gift-intro {
+
+    position: absolute;
+
+    top: 11%;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(-10px);
+
+    transition:
+        opacity 1s ease 0.5s,
+        transform 1s ease 0.5s;
+}
+
+
+.gift-room.visible .gift-intro {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.gift-intro p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    color:
+        rgba(219, 235, 249, 0.7);
+}
+
+
+/* ============================================================
+   GIFT WRAPPER
+============================================================ */
+
+.gift-wrapper {
+
+    position: relative;
+
+    width: 330px;
+    height: 290px;
+
+    cursor: pointer;
+
+    outline: none;
+
+    perspective: 1200px;
+
+    animation:
+        giftFloat 5s ease-in-out infinite;
+}
+
+
+@keyframes giftFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotateZ(-0.5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotateZ(0.5deg);
+    }
+}
+
+
+/* ============================================================
+   GIFT SHADOW
+============================================================ */
+
+.gift-shadow {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 17px;
+
+    width: 220px;
+    height: 35px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.7);
+
+    filter: blur(18px);
+
+    animation:
+        shadowPulse 5s ease-in-out infinite;
+}
+
+
+@keyframes shadowPulse {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            scale(0.85);
+    }
+}
+
+
+/* ============================================================
+   GIFT BOX
+============================================================ */
+
+.gift-box {
+
+    position: absolute;
+
+    width: 220px;
+    height: 170px;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    transform-style: preserve-3d;
+}
+
+
+/* ============================================================
+   BOX BODY
+============================================================ */
+
+.box-body {
+
+    position: absolute;
+
+    width: 220px;
+    height: 150px;
+
+    left: 0;
+    top: 25px;
+
+    transform-style: preserve-3d;
+}
+
+
+.box-front {
+
+    position: absolute;
+
+    width: 220px;
+    height: 150px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #06336b,
+            #021d45
+        );
+
+    border:
+        1px solid
+        rgba(91, 166, 240, 0.25);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(38, 129, 224, 0.15);
+}
+
+
+.box-left {
+
+    position: absolute;
+
+    width: 55px;
+    height: 150px;
+
+    left: -55px;
+
+    transform:
+        skewY(-28deg)
+        translateY(-17px);
+
+    transform-origin: right top;
+
+    background:
+        #032557;
+
+    border:
+        1px solid
+        rgba(91, 166, 240, 0.16);
+}
+
+
+.box-right {
+
+    position: absolute;
+
+    width: 55px;
+    height: 150px;
+
+    right: -55px;
+
+    transform:
+        skewY(28deg)
+        translateY(-17px);
+
+    transform-origin: left top;
+
+    background:
+        #021a3d;
+
+    border:
+        1px solid
+        rgba(91, 166, 240, 0.12);
+}
+
+
+/* ============================================================
+   RIBBONS
+============================================================ */
+
+.ribbon-vertical {
+
+    position: absolute;
+
+    width: 34px;
+    height: 150px;
+
+    left: 93px;
+    top: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b98b3d,
+            #f1d17b,
+            #a8762f
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(232, 186, 84, 0.2);
+}
+
+
+.ribbon-horizontal {
+
+    position: absolute;
+
+    width: 220px;
+    height: 27px;
+
+    left: 0;
+    top: 60px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #a97530,
+            #e4c16a,
+            #a97530
+        );
+}
+
+
+/* ============================================================
+   BOX LID
+============================================================ */
+
+.box-lid {
+
+    position: absolute;
+
+    width: 238px;
+    height: 38px;
+
+    left: -9px;
+    top: 0;
+
+    transform-origin:
+        center bottom;
+
+    transform-style: preserve-3d;
+
+    z-index: 8;
+
+    transition:
+        transform 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+
+.lid-top {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b478b,
+            #032759
+        );
+
+    border:
+        1px solid
+        rgba(110, 184, 255, 0.3);
+
+    box-shadow:
+        0 0 25px
+        rgba(33, 121, 210, 0.18);
+}
+
+
+.lid-ribbon {
+
+    position: absolute;
+
+    width: 34px;
+    height: 38px;
+
+    left: 102px;
+    top: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b98b3d,
+            #f1d17b,
+            #a8762f
+        );
+}
+
+
+/* ============================================================
+   BOX LIGHT
+============================================================ */
+
+.box-light {
+
+    position: absolute;
+
+    width: 170px;
+    height: 100px;
+
+    left: 25px;
+    top: 15px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(75, 178, 255, 0.95),
+            rgba(40, 120, 255, 0.35),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    transition:
+        opacity 0.7s ease;
+}
+
+
+/* ============================================================
+   OPEN BOX
+============================================================ */
+
+.gift-wrapper.opening {
+
+    animation: none;
+}
+
+
+.gift-wrapper.opening .box-lid {
+
+    transform:
+        translateY(-70px)
+        rotateX(-65deg)
+        rotateZ(-3deg);
+}
+
+
+.gift-wrapper.opening .box-light {
+
+    opacity: 1;
+
+    animation:
+        lightBurst 1.4s ease forwards;
+}
+
+
+@keyframes lightBurst {
+
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    35% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+/* ============================================================
+   GIFT INSTRUCTION
+============================================================ */
+
+.gift-instruction {
+
+    position: absolute;
+
+    bottom: 12%;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(183, 211, 237, 0.45);
+
+    animation:
+        instructionPulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes instructionPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* ============================================================
+   SPARKLE
+============================================================ */
+
+.gift-sparkle {
+
+    position: absolute;
+
+    top: 35%;
+
+    color:
+        rgba(232, 196, 108, 0.8);
+
+    animation:
+        sparkleFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(0.8);
+
+        opacity: 0.35;
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            scale(1.15);
+
+        opacity: 1;
+    }
+}
+
+
+/* ============================================================
+   VIDEO REVEAL
+============================================================ */
+
+.video-reveal {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding:
+        7vh 20px 8vh;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center top,
+            rgba(10, 54, 98, 0.22),
+            transparent 55%
+        );
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+
+    z-index: 40;
+}
+
+
+.video-reveal.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.video-container {
+
+    width: min(850px, 94vw);
+
+    text-align: center;
+}
+
+
+/* ============================================================
+   VIDEO HEADING
+============================================================ */
+
+.video-heading span {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(179, 209, 235, 0.45);
+}
+
+
+.video-heading h2 {
+
+    margin-top: 10px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(35px, 5vw, 54px);
+
+    font-weight: 300;
+
+    color:
+        rgba(241, 247, 252, 0.95);
+}
+
+
+/* ============================================================
+   VIDEO FRAME
+============================================================ */
+
+.video-frame {
+
+    position: relative;
+
+    margin:
+        35px auto
+        25px;
+
+    width: min(760px, 92vw);
+
+    border:
+        1px solid
+        rgba(105, 170, 225, 0.2);
+
+    padding: 7px;
+
+    background:
+        rgba(4, 14, 26, 0.8);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,0.5);
+}
+
+
+.video-glow {
+
+    position: absolute;
+
+    inset: -30px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(31, 125, 214, 0.18),
+            transparent 65%
+        );
+
+    filter: blur(25px);
+
+    z-index: -1;
+}
+
+
+#birthdayVideo {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 68vh;
+
+    background: #000;
+
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   VIDEO MESSAGE
+============================================================ */
+
+.video-message {
+
+    margin-top: 25px;
+}
+
+
+.video-line {
+
+    font-family:
+        "Allura",
+        cursive;
+
+    font-size:
+        clamp(28px, 4vw, 38px);
+
+    color:
+        rgba(231, 236, 244, 0.82);
+}
+
+
+/* ============================================================
+   FINAL REVEAL
+============================================================ */
+
+.final-reveal {
+
+    margin:
+        70px auto
+        0;
+
+    padding:
+        45px 20px
+        20px;
+
+    border-top:
+        1px solid
+        rgba(124, 163, 196, 0.12);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+.final-reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.final-star {
+
+    margin-bottom: 20px;
+
+    font-size: 17px;
+
+    color:
+        rgba(224, 185, 99, 0.75);
+}
+
+
+.final-reveal h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(29px, 5vw, 43px);
+
+    font-weight: 300;
+
+    color:
+        rgba(240, 245, 250, 0.92);
+}
+
+
+.final-reveal p {
+
+    margin-top: 14px;
+
+    font-family:
+        "Allura",
+        cursive;
+
+    font-size:
+        clamp(30px, 4vw, 39px);
+
+    color:
+        rgba(219, 228, 239, 0.72);
+}
+
+
+.final-reveal p span {
+
+    color:
+        rgba(228, 104, 120, 0.9);
+
+    text-shadow:
+        0 0 18px
+        rgba(228, 104, 120, 0.35);
+}
+
+
+/* ============================================================
+   BIRTHDAY BUTTON
+============================================================ */
+
+.birthday-button {
+
+    margin-top: 35px;
+
+    padding:
+        14px 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border:
+        1px solid
+        rgba(117, 166, 209, 0.25);
+
+    background:
+        rgba(16, 54, 86, 0.2);
+
+    color:
+        rgba(221, 235, 247, 0.78);
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.birthday-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(29, 91, 139, 0.3);
+
+    border-color:
+        rgba(130, 185, 231, 0.5);
+
+    color: white;
+}
+
+
+/* ============================================================
+   TRANSITION
+============================================================ */
+
+.transition-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #ccecff 0%,
+            #388fe0 25%,
+            #062b55 58%,
+            #00030a 100%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        scale(0.1);
+
+    transition:
+        opacity 1s ease,
+        transform 1.7s cubic-bezier(.16,1,.3,1),
+        visibility 1s ease;
+}
+
+
+.transition-screen.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(2.5);
+}
+
+
+.transition-star {
+
+    font-size: 35px;
+
+    color: white;
+
+    text-shadow:
+        0 0 30px white,
+        0 0 60px #62baff;
+
+    animation:
+        transitionPulse 1s ease-in-out infinite;
+}
+
+
+@keyframes transitionPulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+
+/* ============================================================
+   CAMERA SHAKE
+============================================================ */
+
+body.shake {
+
+    animation:
+        cameraShake 0.55s ease;
+}
+
+
+@keyframes cameraShake {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    15% {
+        transform: translate(3px, -2px);
+    }
+
+    30% {
+        transform: translate(-3px, 2px);
+    }
+
+    45% {
+        transform: translate(2px, 1px);
+    }
+
+    60% {
+        transform: translate(-2px, -1px);
+    }
+
+    75% {
+        transform: translate(1px, 2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .secret-container {
+        transform: translateY(-2vh);
+    }
+
+    .secret-container h1 {
+        font-size: 36px;
+    }
+
+    .secret-description {
+        font-size: 17px;
+    }
+
+    .hint-box {
+        margin-top: 25px;
+    }
+
+    .hint {
+        font-size: 21px;
+    }
+
+    .input-wrapper {
+        width: 92vw;
+    }
+
+    #secretCode {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    #unlockButton {
+        padding: 0 14px;
+        font-size: 8px;
+    }
+
+    .gift-wrapper {
+        transform: scale(0.8);
+    }
+
+    .gift-instruction {
+        bottom: 9%;
+    }
+
+    .video-reveal {
+        padding-top: 8vh;
+    }
+
+    .video-frame {
+        margin-top: 28px;
+    }
+
+    .final-reveal {
+        margin-top: 55px;
+    }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

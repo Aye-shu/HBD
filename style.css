@@ -1,0 +1,261 @@
+/* ===========================================================
+   ENTRY PAGE — video background version.
+      =========================================================== */
+
+      .video-bg {
+        position: fixed;
+          inset: 0;
+            width: 100%;
+              height: 100%;
+                object-fit: cover;
+                  z-index: 0;
+                  }
+
+                  /* Soft dark gradient over the video so white text stays readable */
+                  .video-overlay {
+                    position: fixed;
+                      inset: 0;
+                        z-index: 1;
+                          background: linear-gradient(
+                              to bottom,
+                                  rgba(2, 4, 10, 0.55) 0%,
+                                      rgba(2, 4, 10, 0.15) 30%,
+                                          rgba(2, 4, 10, 0.25) 70%,
+                                              rgba(2, 4, 10, 0.65) 100%
+                                                );
+                                                  opacity: 0;
+                                                  }
+
+                                                  .entry-content {
+                                                    position: fixed;
+                                                      inset: 0;
+                                                        z-index: 10;
+                                                          display: flex;
+                                                            flex-direction: column;
+                                                              align-items: center;
+                                                                padding: 10vh 24px 0;
+                                                                  text-align: center;
+                                                                  }
+
+                                                                  /* "Happy Birthday My Love" — top middle, full clarity, the focal line */
+                                                                  #heading {
+                                                                    font-family: var(--font-display);
+                                                                      font-weight: 500;
+                                                                        font-size: clamp(32px, 6vw, 64px);
+                                                                          color: var(--starlight);
+                                                                            text-shadow: 0 0 30px rgba(79, 140, 255, 0.5), 0 0 60px rgba(244, 246, 255, 0.25);
+                                                                              letter-spacing: 0.02em;
+                                                                                opacity: 0;
+                                                                                  margin: 0;
+                                                                                  }
+
+                                                                                  /* The paragraph — smaller, slightly softer than the heading */
+                                                                                  #message {
+                                                                                    font-family: var(--font-ui);
+                                                                                      font-weight: 300;
+                                                                                        font-size: clamp(14px, 1.8vw, 19px);
+                                                                                          line-height: 1.9;
+                                                                                            color: rgba(244, 246, 255, 0.86);
+                                                                                              max-width: 560px;
+                                                                                                margin-top: 28px;
+                                                                                                  opacity: 60%;
+                                                                                                    white-space: pre-line;
+                                                                                                    }
+
+                                                                                                    /* "Welcome to my universe." — same small size as the paragraph */
+                                                                                                    #welcome-line {
+                                                                                                      font-family: var(--font-ui);
+                                                                                                        font-weight: 300;
+                                                                                                          font-style: italic;
+                                                                                                            font-size: clamp(14px, 1.8vw, 19px);
+                                                                                                              color: rgba(244, 246, 255, 0.86);
+                                                                                                                margin-top: 22px;
+                                                                                                                  opacity: 0;
+                                                                                                                  }
+
+                                                                                                                 /* =========================================================
+   ENTER BUTTON
+========================================================= */
+
+.enter-button {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-width: 275px;
+
+    padding:
+        16px 34px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(210,235,255,0.72);
+
+    background:
+
+        linear-gradient(
+            135deg,
+
+            rgba(255,255,255,0.10),
+
+            rgba(70,130,210,0.10)
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    color:
+        rgba(242,249,255,0.95);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing:
+        0.20em;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 0 20px
+        rgba(100,170,255,0.10),
+
+        inset 0 0 20px
+        rgba(255,255,255,0.035);
+
+    transition:
+
+        transform 0.45s ease,
+
+        box-shadow 0.45s ease,
+
+        background 0.45s ease,
+
+        border-color 0.45s ease;
+
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.enter-button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.025);
+
+    border-color:
+        rgba(235,248,255,0.95);
+
+    background:
+
+        linear-gradient(
+            135deg,
+
+            rgba(255,255,255,0.15),
+
+            rgba(70,140,230,0.18)
+        );
+
+    box-shadow:
+
+        0 0 30px
+        rgba(100,180,255,0.22),
+
+        0 0 70px
+        rgba(60,130,255,0.10),
+
+        inset 0 0 25px
+        rgba(255,255,255,0.05);
+
+}
+
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.button-shine {
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 55%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,0.25),
+
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    animation:
+
+        buttonShine
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes buttonShine {
+
+    0% {
+
+        left: -100%;
+
+    }
+
+    35% {
+
+        left: 130%;
+
+    }
+
+    100% {
+
+        left: 130%;
+
+    }
+
+}
+
+
+/* =========================================================
+   BUTTON CLICK
+========================================================= */
+
+.enter-button:active {
+
+    transform:
+        translateY(0)
+        scale(0.97);
+
+}

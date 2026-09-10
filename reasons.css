@@ -1,0 +1,1159 @@
+/* ============================================================
+   A THOUSAND LITTLE REASONS
+   PAGE 9
+============================================================ */
+
+
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #172b48 0%,
+            #0a1325 45%,
+            #030712 100%
+        );
+
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* ============================================================
+   BACKGROUND IMAGE (added)
+============================================================ */
+
+.bg-image-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.nebula {
+    position: absolute;
+
+    width: 55vw;
+    height: 55vw;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: .18;
+}
+
+
+.nebula-one {
+    top: -20%;
+    left: -15%;
+
+    background:
+        radial-gradient(
+            circle,
+            #477db4,
+            transparent 70%
+        );
+}
+
+
+.nebula-two {
+    right: -20%;
+    bottom: -20%;
+
+    background:
+        radial-gradient(
+            circle,
+            #75578f,
+            transparent 70%
+        );
+}
+
+
+/* ============================================================
+   BACKGROUND STARS
+============================================================ */
+
+.stars-background {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        );
+
+    background-size: 95px 95px;
+
+    opacity: .16;
+}
+
+
+/* ============================================================
+   MOUNTAINS
+============================================================ */
+
+.mountain {
+    position: absolute;
+
+    bottom: -3px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 27vh;
+
+    clip-path:
+        polygon(
+            0 100%,
+            0 72%,
+            8% 55%,
+            17% 70%,
+            29% 35%,
+            40% 67%,
+            51% 30%,
+            64% 66%,
+            76% 42%,
+            87% 69%,
+            100% 48%,
+            100% 100%
+        );
+}
+
+
+.mountain-back {
+    background: #101d31;
+
+    opacity: .7;
+}
+
+
+.mountain-front {
+    height: 19vh;
+
+    background: #07101e;
+
+    opacity: .95;
+}
+
+
+/* ============================================================
+   MAIN
+============================================================ */
+
+.reasons-page {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        70px
+        30px
+        80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.page-header {
+    text-align: center;
+
+    max-width: 700px;
+
+    animation:
+        headerReveal 1.5s ease forwards;
+}
+
+
+.eyebrow {
+    margin-bottom: 15px;
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    color: rgba(190,220,255,.65);
+}
+
+
+.page-header h1 {
+    font-size:
+        clamp(
+            36px,
+            5vw,
+            65px
+        );
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 25px
+        rgba(150,205,255,.25);
+}
+
+
+.subtitle {
+    margin-top: 18px;
+
+    font-size:
+        clamp(
+            15px,
+            2vw,
+            19px
+        );
+
+    line-height: 1.7;
+
+    color:
+        rgba(225,235,248,.68);
+}
+
+
+/* ============================================================
+   CONSTELLATION
+============================================================ */
+
+.constellation {
+    position: relative;
+
+    width: min(
+        900px,
+        92vw
+    );
+
+    height: min(
+        590px,
+        62vw
+    );
+
+    min-height: 430px;
+
+    margin-top: 35px;
+}
+
+
+/* ============================================================
+   CONSTELLATION LINES
+============================================================ */
+
+.constellation-lines {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    opacity: .25;
+
+    pointer-events: none;
+}
+
+
+.constellation-lines path {
+    fill: none;
+
+    stroke:
+        rgba(155,205,255,.6);
+
+    stroke-width: 1;
+
+    stroke-dasharray: 4 9;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(130,190,255,.5)
+        );
+}
+
+
+/* ============================================================
+   CENTER
+============================================================ */
+
+.constellation-center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 220px;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    opacity: .8;
+}
+
+
+.center-heart {
+    font-size: 55px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:
+        rgba(210,230,255,.8);
+
+    text-shadow:
+        0 0 30px
+        rgba(160,210,255,.7);
+
+    animation:
+        heartPulse 3s ease-in-out infinite;
+}
+
+
+.constellation-center p {
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(225,235,250,.6);
+}
+
+
+/* ============================================================
+   REASON STARS
+============================================================ */
+
+.reason-star {
+    position: absolute;
+
+    width: 46px;
+    height: 46px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        transform .5s ease,
+        opacity .5s ease;
+}
+
+
+.reason-star span {
+    display: block;
+
+    font-size: 27px;
+
+    color: #d8edff;
+
+    text-shadow:
+        0 0 8px #a9d8ff,
+        0 0 20px #78bfff,
+        0 0 38px rgba(120,190,255,.7);
+
+    animation:
+        starFloat 3s ease-in-out infinite;
+}
+
+
+.reason-star::before {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(205,235,255,.9);
+
+    filter:
+        blur(5px);
+
+    opacity: .8;
+}
+
+
+.reason-star:hover {
+    transform:
+        scale(1.35);
+}
+
+
+.reason-star:hover span {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px #ffffff,
+        0 0 30px #a9dcff,
+        0 0 55px #7bc7ff;
+}
+
+
+/* ============================================================
+   STAR POSITIONS
+============================================================ */
+
+.star-1 {
+    left: 50%;
+    top: 6%;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.star-2 {
+    left: 32%;
+    top: 21%;
+}
+
+
+.star-3 {
+    left: 68%;
+    top: 21%;
+}
+
+
+.star-4 {
+    left: 19%;
+    top: 40%;
+}
+
+
+.star-5 {
+    left: 81%;
+    top: 40%;
+}
+
+
+.star-6 {
+    left: 27%;
+    top: 62%;
+}
+
+
+.star-7 {
+    left: 73%;
+    top: 62%;
+}
+
+
+.star-8 {
+    left: 41%;
+    top: 78%;
+}
+
+
+.star-9 {
+    left: 59%;
+    top: 78%;
+}
+
+
+.star-10 {
+    left: 50%;
+    top: 92%;
+}
+
+
+/* ============================================================
+   STAR OPENING
+============================================================ */
+
+.reason-star.opening {
+    transform:
+        scale(2.2);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.reason-star.opening span {
+    animation:
+        starExplosion .6s ease forwards;
+}
+
+
+/* ============================================================
+   MESSAGE
+============================================================ */
+
+.reason-message {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.7);
+
+    width:
+        min(
+            620px,
+            88vw
+        );
+
+    padding:
+        42px
+        35px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(180,220,255,.18);
+
+    border-radius: 24px;
+
+    background:
+        rgba(8,18,34,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.5),
+        inset 0 0 40px
+        rgba(130,190,255,.04);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    z-index: 20;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease,
+        visibility .5s;
+}
+
+
+.reason-message.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+.message-glow {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 180px;
+    height: 180px;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(120,190,255,.16),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+.message-star {
+    position: relative;
+
+    font-size: 32px;
+
+    margin-bottom: 22px;
+
+    color: #d8edff;
+
+    text-shadow:
+        0 0 15px #9ed7ff,
+        0 0 35px #7bc6ff;
+}
+
+
+.reason-message p {
+    position: relative;
+
+    font-size:
+        clamp(
+            18px,
+            2.4vw,
+            25px
+        );
+
+    line-height: 1.65;
+
+    color:
+        rgba(245,249,255,.92);
+}
+
+
+/* ============================================================
+   PROGRESS
+============================================================ */
+
+.progress {
+    margin-top: -5px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 13px;
+
+    color:
+        rgba(215,230,245,.65);
+
+    letter-spacing: 1px;
+}
+
+
+.progress-divider {
+    opacity: .4;
+}
+
+
+.progress-label {
+    margin-left: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    opacity: .6;
+}
+
+
+/* ============================================================
+   FINAL MESSAGE
+============================================================ */
+
+.final-message {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(30,62,95,.45),
+            rgba(3,7,16,.97) 65%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s;
+}
+
+
+.final-message.visible {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.final-star {
+    font-size: 35px;
+
+    color: #e5f4ff;
+
+    text-shadow:
+        0 0 12px #b5e1ff,
+        0 0 40px #73c2ff;
+
+    animation:
+        finalStar 2s ease-in-out infinite;
+
+    margin-bottom: 28px;
+}
+
+
+.final-message h2 {
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            55px
+        );
+
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    color: #ffffff;
+}
+
+
+.final-message p {
+    margin-top: 20px;
+
+    font-size:
+        clamp(
+            23px,
+            3vw,
+            35px
+        );
+
+    font-style: italic;
+
+    color:
+        #b9ddfa;
+
+    text-shadow:
+        0 0 25px
+        rgba(130,200,255,.45);
+}
+
+
+.final-heart {
+    margin-top: 28px;
+
+    font-size: 45px;
+
+    color:
+        rgba(215,237,255,.85);
+
+    animation:
+        heartPulse 2.5s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   NEXT BUTTON
+============================================================ */
+
+.next-container {
+    position: fixed;
+
+    right: 35px;
+    bottom: 30px;
+
+    z-index: 40;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s;
+}
+
+
+.next-container.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+
+.next-button {
+    border: 1px solid
+        rgba(180,220,255,.3);
+
+    background:
+        rgba(10,25,43,.75);
+
+    color: #ffffff;
+
+    padding:
+        13px
+        20px;
+
+    border-radius: 50px;
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.25);
+
+    transition:
+        .35s ease;
+}
+
+
+.next-button:hover {
+    transform:
+        translateX(4px);
+
+    border-color:
+        rgba(190,225,255,.7);
+
+    box-shadow:
+        0 0 25px
+        rgba(130,200,255,.2);
+}
+
+
+.arrow {
+    margin-left: 9px;
+
+    font-size: 17px;
+}
+
+
+/* ============================================================
+   ANIMATIONS
+============================================================ */
+
+@keyframes headerReveal {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            scale(1.08);
+    }
+
+}
+
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+
+}
+
+
+@keyframes starExplosion {
+
+    0% {
+        transform:
+            scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            scale(3);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(5);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes finalStar {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+
+        opacity: .75;
+    }
+
+    50% {
+        transform:
+            scale(1.35);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .reasons-page {
+        padding-top: 45px;
+        padding-bottom: 70px;
+    }
+
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+
+    .subtitle {
+        font-size: 15px;
+
+        max-width: 340px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .constellation {
+        width: 94vw;
+
+        height: 500px;
+
+        min-height: 500px;
+
+        margin-top: 20px;
+    }
+
+
+    .reason-star {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .reason-star span {
+        font-size: 24px;
+    }
+
+
+    .constellation-center {
+        width: 170px;
+    }
+
+
+    .center-heart {
+        font-size: 42px;
+    }
+
+
+    .constellation-center p {
+        font-size: 12px;
+    }
+
+
+    .progress {
+        margin-top: 0;
+
+        font-size: 11px;
+    }
+
+
+    .progress-label {
+        font-size: 9px;
+    }
+
+
+    .reason-message {
+        padding:
+            35px
+            25px;
+    }
+
+
+    .reason-message p {
+        font-size: 18px;
+    }
+
+
+    .next-container {
+        right: 18px;
+        bottom: 18px;
+    }
+
+}
+
+
+@media (max-height: 700px) {
+
+    .reasons-page {
+        padding-top: 30px;
+    }
+
+
+    .constellation {
+        height: 430px;
+
+        min-height: 430px;
+
+        margin-top: 15px;
+    }
+
+}

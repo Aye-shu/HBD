@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>The Love Letter</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="letter.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================== -->
+
+    <div class="space">
+
+        <div class="stars"></div>
+        <div class="stars stars-two"></div>
+        <div class="stars stars-three"></div>
+
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+
+        <canvas id="particleCanvas"></canvas>
+
+    </div>
+
+
+    <!-- =========================================================
+         MAIN EXPERIENCE
+    ========================================================== -->
+
+    <main class="letter-page">
+
+        <!-- INTRO -->
+        <section class="intro-screen" id="introScreen">
+
+            <div class="intro-content">
+
+                <div class="tiny-label">
+                    A little piece of my heart
+                </div>
+
+                <!-- Envelope -->
+                <div class="envelope-wrapper" id="envelopeWrapper">
+
+                    <div class="envelope-shadow"></div>
+
+                    <div class="envelope" id="envelope">
+
+                        <!-- Envelope body -->
+                        <div class="envelope-body">
+
+                            <div class="envelope-paper"></div>
+
+                            <!-- Envelope flap -->
+                            <div class="envelope-flap"></div>
+
+                            <!-- Wax seal -->
+                            <div class="wax-seal">
+                                <!-- CHANGE H TO HIS INITIAL -->
+                                <span>A</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="intro-text">
+
+                    <h1>
+                        A letter I've been<br>
+                        wanting to give you...
+                    </h1>
+
+                    <button class="open-button" id="openButton">
+
+                        <span>Open the letter</span>
+
+                        <span class="button-arrow">↓</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LETTER SCREEN
+        ====================================================== -->
+
+        <section class="letter-screen" id="letterScreen">
+
+            <div class="letter-stage">
+
+                <!-- Envelope behind paper -->
+                <div class="opened-envelope" id="openedEnvelope">
+
+                    <div class="opened-envelope-back"></div>
+
+                </div>
+
+
+                <!-- Paper -->
+                <article class="paper" id="paper">
+
+                    <div class="paper-texture"></div>
+
+                    <div class="paper-content">
+
+                        <!-- Top ornament -->
+                        <div class="paper-ornament">
+                            ✦
+                        </div>
+
+
+                        <!-- Greeting -->
+                        <div class="letter-greeting">
+                            My love,
+                        </div>
+
+
+                        <!-- SECTION 1 -->
+                        <section class="letter-section">
+
+                            <h2>
+                                How it started
+                            </h2>
+
+                            <div class="section-line"></div>
+
+                            <p class="typewriter">
+                                I still remember how something so simple slowly
+                                became something so important to me. I never knew
+                                that one person could quietly become such a beautiful
+                                part of my everyday life.
+                            </p>
+
+                        </section>
+
+
+                        <!-- SECTION 2 -->
+                        <section class="letter-section">
+
+                            <h2>
+                                What you mean to me
+                            </h2>
+
+                            <div class="section-line"></div>
+
+                            <p class="typewriter">
+                                You are more than someone I love. You are someone
+                                who makes ordinary days feel warmer, difficult days
+                                feel lighter, and beautiful moments feel even more
+                                beautiful simply because I get to share them with you.
+                            </p>
+
+                        </section>
+
+
+                        <!-- SECTION 3 -->
+                        <section class="letter-section">
+
+                            <h2>
+                                Things I've never said enough
+                            </h2>
+
+                            <div class="section-line"></div>
+
+                            <p class="typewriter">
+                                Thank you for being you. Thank you for the little
+                                things you probably don't even realize I notice.
+                                Thank you for the moments that became memories,
+                                and for all the times your presence made my heart
+                                feel at home.
+                            </p>
+
+                        </section>
+
+
+                        <!-- SECTION 4 -->
+                        <section class="letter-section">
+
+                            <h2>
+                                The way I see you
+                            </h2>
+
+                            <div class="section-line"></div>
+
+                            <p class="typewriter">
+                                 I wish, just once, you could see yourself through my eyes.
+        You would see someone worth believing in, someone worth
+        being proud of, someone with a heart more beautiful than
+        he probably realizes. I see your strength, but I also see
+        the parts of you that get tired, uncertain, or afraid.
+        And none of those parts make me love you less. They make
+        you human. They make you real. And they make me want to
+        stand beside you even more.
+                            </p>
+
+                        </section>
+
+
+                        <!-- SECTION 5 -->
+                        <section class="letter-section">
+
+                            <h2>
+                                What I promise
+                            </h2>
+
+                            <div class="section-line"></div>
+
+                            <p class="typewriter">
+                                I promise to keep choosing you, especially in the ordinary
+        moments. Not only when everything feels beautiful, but when
+        life becomes complicated, quiet, frustrating, or uncertain.
+        I promise to keep appreciating the person you are and to
+        keep learning the person you are becoming. I promise to
+        celebrate your victories, support your dreams, listen to
+        your worries, and remind you of your worth whenever you
+        forget it yourself.
+                            </p>
+
+                        </section>
+<section class="letter-section">
+
+    <h2>
+        My prayer for you
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="typewriter">
+        On your birthday, one of my deepest prayers is that you are
+        always protected, guided, and surrounded by goodness. May
+        every door that is meant for you open at the right time.
+        May the things that are not meant for you leave without
+        taking away your peace. May your heart remain soft, your
+        dreams remain alive, and your path be filled with blessings.
+        And wherever life takes you, I pray you always have a reason
+        to believe that beautiful things are still waiting for you.Allah bless you with everything
+    </p>
+
+</section>
+
+<section class="letter-section">
+
+    <h2>
+        On your birthday
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="typewriter">
+        Today is your birthday, but somehow I feel like I am the one
+        who has received the gift. Because the world gave me you.
+        And no matter how many birthdays come and go, I hope you
+        always remember that somewhere in this world there is a
+        heart that is endlessly grateful that you exist. I hope this
+        little letter reminds you of how loved you are, how deeply
+        you are appreciated, and how much more beautiful life feels
+        simply because you are a part of mine.
+    </p>
+
+</section>
+
+                        <!-- Signature -->
+                        <div class="signature-area">
+
+                            <p class="signature-text">
+                                Yours, always.
+                            </p>
+
+                            <div class="signature-line"></div>
+
+                        </div>
+
+
+                        <!-- Final message -->
+                        <div class="final-message" id="finalMessage">
+
+                            <div class="final-star">✦</div>
+
+                            <h3>
+                                Happy Birthday, my love.
+                            </h3>
+
+                            <p>
+                                But I'm not done yet.
+                            </p>
+
+                            <button id="continueButton">
+                                <span>There's one more thing</span>
+                                <span>→</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         GOLDEN TRANSITION
+    ========================================================== -->
+
+    <div class="gold-transition" id="goldTransition"></div>
+
+
+    <script src="letter.js"></script>
+
+</body>
+</html>

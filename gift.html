@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>The Secret Gift</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="gift.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="world">
+
+        <div class="room-glow"></div>
+
+        <div class="stars"></div>
+
+        <div class="floor"></div>
+
+        <div class="floor-glow"></div>
+
+        <canvas id="particleCanvas"></canvas>
+
+    </div>
+
+
+    <!-- =====================================================
+         PASSWORD / SECRET CODE SCREEN
+    ====================================================== -->
+
+    <main class="gift-page">
+
+        <section
+            class="secret-screen"
+            id="secretScreen"
+        >
+
+            <div class="secret-container">
+
+                <div class="secret-symbol">
+                    ✦
+                </div>
+
+
+                <p class="secret-label">
+                    ONE LAST SECRET
+                </p>
+
+
+                <h1>
+                    I kept one thing<br>
+                    hidden from you.
+                </h1>
+
+
+                <p class="secret-description">
+                    Before you can find your gift,
+                    <br>
+                    there's something you need to discover.
+                </p>
+
+
+                <!-- Hint -->
+
+                <div class="hint-box">
+
+                    <span class="hint-label">
+                        YOUR HINT
+                    </span>
+
+                    <div class="hint">
+                        Abhishek + Ishika = ?
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="code-area">
+
+                    <label for="secretCode">
+                        ENTER THE SECRET CODE
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="text"
+                            id="secretCode"
+                            autocomplete="off"
+                            autocapitalize="characters"
+                            spellcheck="false"
+                            placeholder="••••••••"
+                        >
+
+                        <button
+                            id="unlockButton"
+                            type="button"
+                        >
+                            UNLOCK
+                        </button>
+
+                    </div>
+
+
+                    <!-- Feedback -->
+
+                    <div
+                        class="feedback"
+                        id="feedback"
+                    ></div>
+
+                </div>
+
+
+                <!-- Attempts -->
+
+                <div
+                    class="attempt-counter"
+                    id="attemptCounter"
+                >
+                    Some secrets are worth discovering.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WRONG ANSWER MESSAGE
+        ================================================== -->
+
+        <div
+            class="wrong-message"
+            id="wrongMessage"
+        >
+
+            <div class="wrong-card">
+
+                <div class="wrong-icon">
+                    ✦
+                </div>
+
+                <p id="wrongText">
+                    Hmm... not quite.
+                </p>
+
+                <button
+                    id="tryAgainButton"
+                    type="button"
+                >
+                    TRY AGAIN
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             UNLOCKED GIFT ROOM
+        ================================================== -->
+
+        <section
+            class="gift-room"
+            id="giftRoom"
+        >
+
+            <div class="gift-intro">
+
+                <p>
+                    You found it.
+                </p>
+
+            </div>
+
+
+            <!-- Gift box -->
+
+            <div
+                class="gift-wrapper"
+                id="giftWrapper"
+                tabindex="0"
+                role="button"
+                aria-label="Open your gift"
+            >
+
+                <div class="gift-shadow"></div>
+
+
+                <div class="gift-box">
+
+                    <!-- Back of box -->
+
+                    <div class="box-back"></div>
+
+
+                    <!-- Main body -->
+
+                    <div class="box-body">
+
+                        <div class="box-front"></div>
+
+                        <div class="box-left"></div>
+
+                        <div class="box-right"></div>
+
+                        <!-- Vertical ribbon -->
+
+                        <div class="ribbon-vertical"></div>
+
+                        <!-- Horizontal ribbon -->
+
+                        <div class="ribbon-horizontal"></div>
+
+                    </div>
+
+
+                    <!-- Lid -->
+
+                    <div class="box-lid">
+
+                        <div class="lid-top"></div>
+
+                        <div class="lid-ribbon"></div>
+
+                    </div>
+
+
+                    <!-- Glow -->
+
+                    <div class="box-light"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="gift-instruction">
+                Click the box
+            </div>
+
+
+            <div class="gift-sparkle">
+                ✦
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             VIDEO REVEAL
+        ================================================== -->
+
+        <section
+            class="video-reveal"
+            id="videoReveal"
+        >
+
+            <div class="video-container">
+
+                <div class="video-heading">
+
+                    <span>
+                        A LITTLE SOMETHING FOR YOU
+                    </span>
+
+                    <h2>
+                        You found your gift.
+                    </h2>
+
+                </div>
+
+
+                <div class="video-frame">
+
+                    <div class="video-glow"></div>
+
+                    <video
+                        id="birthdayVideo"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="message.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support video.
+
+                    </video>
+
+                </div>
+
+
+                <div class="video-message">
+
+                    <p class="video-line">
+                        I wanted to give you something
+                        you could keep forever.
+                    </p>
+
+                </div>
+
+
+                <!-- Final reveal -->
+
+                <div
+                    class="final-reveal"
+                    id="finalReveal"
+                >
+
+                    <div class="final-star">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Your gift isn't inside this box.
+                    </h3>
+
+                    <p>
+                        It's waiting for you outside
+                        this screen. <span>♥</span>
+                    </p>
+
+
+                    <button
+                        class="birthday-button"
+                        id="birthdayButton"
+                    >
+
+                        <span>
+                            Reasons
+                        </span>
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         TRANSITION
+    ====================================================== -->
+
+    <div
+        class="transition-screen"
+        id="transitionScreen"
+    >
+
+        <div class="transition-star">
+            ✦
+        </div>
+
+    </div>
+
+
+    <script src="./gift.js"></script>
+
+</body>
+
+</html>

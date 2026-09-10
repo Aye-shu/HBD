@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#020714"
+    >
+
+    <title>Happy Birthday, My Love</title>
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="birthday.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MAIN EXPERIENCE
+    ====================================================== -->
+
+    <main id="birthdayExperience">
+
+
+        <!-- =================================================
+             SKY
+        ================================================== -->
+
+        <div class="sky">
+
+            <div class="stars stars-one"></div>
+
+            <div class="stars stars-two"></div>
+
+            <div class="stars stars-three"></div>
+
+
+            <div class="shooting-stars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <!-- MOON -->
+
+            <div class="moon">
+
+                <div class="moon-glow"></div>
+
+                <div class="moon-disc">
+
+                    <span class="crater crater-one"></span>
+
+                    <span class="crater crater-two"></span>
+
+                    <span class="crater crater-three"></span>
+
+                    <span class="crater crater-four"></span>
+
+                    <span class="crater crater-five"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ATMOSPHERE
+        ================================================== -->
+
+        <div class="atmosphere"></div>
+
+        <div class="mist mist-one"></div>
+
+        <div class="mist mist-two"></div>
+
+
+        <!-- =================================================
+             MOUNTAINS
+        ================================================== -->
+
+        <div class="mountains">
+
+            <div class="mountain mountain-back">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div class="mountain mountain-middle">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div class="mountain mountain-front">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOREST
+        ================================================== -->
+
+        <div class="forest forest-left">
+
+            <div class="tree tree-large"></div>
+
+            <div class="tree tree-medium"></div>
+
+            <div class="tree tree-small"></div>
+
+            <div class="tree tree-medium"></div>
+
+        </div>
+
+
+        <div class="forest forest-right">
+
+            <div class="tree tree-medium"></div>
+
+            <div class="tree tree-large"></div>
+
+            <div class="tree tree-small"></div>
+
+            <div class="tree tree-medium"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             FAIRY LIGHTS
+        ================================================== -->
+
+        <div class="fairy-lights fairy-lights-left">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="fairy-lights fairy-lights-right">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- =================================================
+             GROUND
+        ================================================== -->
+
+        <div class="ground">
+
+            <div class="ground-glow"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PARTICLES
+        ================================================== -->
+
+        <canvas
+            id="particleCanvas"
+            class="particle-canvas"
+        ></canvas>
+
+
+        <!-- =================================================
+             FIREWORK CANVAS
+        ================================================== -->
+
+        <canvas
+            id="fireworkCanvas"
+            class="firework-canvas"
+        ></canvas>
+
+
+        <!-- =================================================
+             CONFETTI
+        ================================================== -->
+
+        <div
+            id="confettiContainer"
+            class="confetti-container"
+        ></div>
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <section
+            id="introScene"
+            class="scene intro-scene"
+        >
+
+            <div class="intro-content">
+
+                <div class="tiny-label">
+                    YOUR FINAL DESTINATION
+                </div>
+
+                <div class="intro-symbol">
+                    ✦
+                </div>
+
+                <h1>
+                    Welcome to your<br>
+                    birthday dimension.
+                </h1>
+
+                <p>
+                    After everything we've been through...
+                </p>
+
+                <button
+                    id="enterBirthday"
+                    class="primary-button"
+                >
+                    <span>Enter</span>
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CELEBRATION SCENE
+        ================================================== -->
+
+        <section
+            id="celebrationScene"
+            class="scene celebration-scene"
+        >
+
+            <!-- Subtle name made from lights -->
+
+            <div
+                id="smallName"
+                class="small-name"
+            >
+                A B H I S H E K
+            </div>
+
+
+            <!-- =================================================
+                 CAKE
+            ================================================== -->
+
+            <div
+                id="cakeArea"
+                class="cake-area"
+            >
+
+                <div class="cake-shadow"></div>
+
+
+                <!-- Cake glow -->
+
+                <div class="cake-glow"></div>
+
+
+                <!-- TOP CANDLES -->
+
+                <div class="candles">
+
+                    <div class="candle candle-one">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle candle-two">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle candle-three">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle candle-four">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle candle-five">
+                        <div class="flame"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- CAKE -->
+
+                <div
+                    id="cake"
+                    class="cake"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Tap the cake to blow out the candles"
+                >
+
+                    <div class="cake-top">
+
+                        <div class="cake-top-decoration"></div>
+
+                        <span class="cake-sparkle sparkle-one">
+                            ✦
+                        </span>
+
+                        <span class="cake-sparkle sparkle-two">
+                            ✦
+                        </span>
+
+                    </div>
+
+
+                    <div class="cake-middle">
+
+                        <div class="frosting drip-one"></div>
+
+                        <div class="frosting drip-two"></div>
+
+                        <div class="frosting drip-three"></div>
+
+                        <div class="frosting drip-four"></div>
+
+                    </div>
+
+
+                    <div class="cake-bottom">
+
+                        <div class="cake-ribbon"></div>
+
+                    </div>
+
+
+                    <div class="cake-plate"></div>
+
+                </div>
+
+
+                <!-- CAKE MESSAGE -->
+
+                <div
+                    id="wishMessage"
+                    class="wish-message"
+                >
+
+                    <span class="wish-main">
+                        Make a wish,
+                    </span>
+
+                    <span class="wish-script">
+                        birthday boy.
+                    </span>
+
+                </div>
+
+
+                <!-- BLOW CONTROLS -->
+
+                <div
+                    id="blowControls"
+                    class="blow-controls"
+                >
+
+                    <button
+                        id="micButton"
+                        class="blow-button"
+                    >
+
+                        <span class="mic-icon">🎤</span>
+
+                        <span>
+                            Blow into the microphone
+                        </span>
+
+                    </button>
+
+
+                    <div class="or-text">
+                        or
+                    </div>
+
+
+                    <button
+                        id="tapButton"
+                        class="tap-button"
+                    >
+                        Tap the cake
+                    </button>
+
+                </div>
+
+
+                <!-- MICROPHONE STATUS -->
+
+                <div
+                    id="micStatus"
+                    class="mic-status"
+                >
+                    Microphone ready
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL MESSAGE
+        ================================================== -->
+
+        <section
+            id="finalScene"
+            class="scene final-scene"
+        >
+
+            <div class="final-content">
+
+                <div
+                    id="skyName"
+                    class="sky-name"
+                >
+                    ABHISHEK
+                </div>
+
+
+                <div
+                    id="birthdayText"
+                    class="birthday-text"
+                >
+
+                    <div class="birthday-small">
+                        Happy Birthday,
+                    </div>
+
+                    <div class="birthday-large">
+                        My Love
+                        <span>♥</span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="finalSubtext"
+                    class="final-subtext"
+                >
+                    May every beautiful thing you wish for<br>
+                    find its way to you.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             REASONS PAGE TRANSITION
+        ========================================================== -->
+
+        <section
+            class="reasons-transition"
+            id="reasonsTransition"
+        >
+
+            <div class="reasons-transition-content">
+
+                <div class="transition-star">
+                    ✦
+                </div>
+
+                <p class="transition-small">
+                    The sky may be full of stars...
+                </p>
+
+                <h2>
+                    But I still have<br>
+                    a few more things to tell you.
+                </h2>
+
+                <button
+                    id="reasonsButton"
+                    class="reasons-button"
+                >
+
+                    <span>
+                        Discover the reasons
+                    </span>
+
+                    <span class="reasons-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MUSIC
+        ================================================== -->
+
+        <!--
+            Put your celebration music here.
+
+            Example:
+
+            assets/birthday-music.mp3
+        -->
+
+        <audio
+            id="birthdayMusic"
+            preload="auto"
+            loop
+        >
+
+            <source
+                src="./background.mp3"
+                type="audio/mpeg"
+            >
+
+        </audio>
+
+
+        <!-- =================================================
+             AUDIO START OVERLAY
+        ================================================== -->
+
+        <div
+            id="audioOverlay"
+            class="audio-overlay"
+        >
+
+            <div class="audio-overlay-content">
+
+                <div class="audio-star">
+                    ✦
+                </div>
+
+                <h2>
+                    One last little journey...
+                </h2>
+
+                <p>
+                    Turn up your volume.
+                </p>
+
+                <button
+                    id="startExperience"
+                    class="primary-button"
+                >
+
+                    <span>
+                        Begin
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BLACKOUT
+        ================================================== -->
+
+        <div
+            id="blackout"
+            class="blackout"
+        ></div>
+
+
+        <!-- =================================================
+             FINAL GLOW
+        ================================================== -->
+
+        <div
+            id="finalGlow"
+            class="final-glow"
+        ></div>
+
+    </main>
+
+
+    <script src="birthday.js"></script>
+
+</body>
+
+</html>
