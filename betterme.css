@@ -212,6 +212,8 @@ body {
     letter-spacing: .2em;
 
     color: rgba(230,240,255,.5);
+
+    pointer-events: none;
 }
 
 .progress-line {
@@ -1018,6 +1020,12 @@ body {
 
     cursor: pointer;
 
+    text-decoration: none;
+
+    position: relative;
+
+    z-index: 100;
+
     transition: .4s ease;
 }
 
@@ -1030,162 +1038,6 @@ body {
 
     box-shadow:
         0 0 30px rgba(255,210,120,.15);
-}
-
-
-/* ============================================================
-   WISH TRANSITION
-============================================================ */
-
-.wish-transition {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 500;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background:
-        #010207;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 2s ease,
-        visibility 2s ease;
-}
-
-.wish-transition.show {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-.transition-light {
-
-    position: absolute;
-
-    width: 10px;
-
-    height: 10px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    box-shadow:
-        0 0 20px white,
-        0 0 60px rgba(170,220,255,.9),
-        0 0 120px rgba(90,170,255,.7);
-
-    transform: scale(1);
-
-    transition:
-        transform 3s cubic-bezier(.2,.7,.2,1);
-}
-
-.wish-transition.show .transition-light {
-
-    transform: scale(250);
-}
-
-.transition-content {
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    transition:
-        opacity 1.5s ease 1s,
-        transform 1.5s ease 1s;
-}
-
-.wish-transition.show .transition-content {
-
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-.transition-star {
-
-    margin-bottom: 20px;
-
-    color: var(--gold-light);
-
-    font-size: 24px;
-}
-
-.transition-content p {
-
-    max-width: 650px;
-
-    padding: 20px;
-
-    font-family: var(--serif);
-
-    font-size:
-        clamp(28px, 4vw, 48px);
-
-    font-weight: 300;
-
-    line-height: 1.15;
-
-    color: white;
-}
-
-.transition-content button {
-
-    margin-top: 25px;
-
-    padding: 14px 25px;
-
-    border:
-        1px solid rgba(255,255,255,.3);
-
-    border-radius: 100px;
-
-    background:
-        rgba(255,255,255,.05);
-
-    color: white;
-
-    font-family: var(--sans);
-
-    font-size: 10px;
-
-    letter-spacing: .22em;
-
-    cursor: pointer;
-
-    transition: .35s ease;
-}
-
-.transition-content button:hover {
-
-    background:
-        rgba(255,255,255,.12);
-
-    transform: translateY(-3px);
 }
 
 
@@ -1366,33 +1218,4 @@ body {
 
         transition-duration: .01ms !important;
     }
-}
-
-.continue-button {
-    text-decoration: none;
-}
-/* ============================================================
-   CLICK SAFETY — ensure nothing invisible blocks buttons
-============================================================ */
-
-.wish-transition:not(.show) {
-    pointer-events: none !important;
-    visibility: hidden !important;
-}
-
-.story-section:not(.active) {
-    pointer-events: none !important;
-}
-
-.background-video,
-.video-dark,
-.video-vignette,
-.stars,
-.page-progress {
-    pointer-events: none !important;
-}
-
-.continue-button {
-    position: relative;
-    z-index: 100;
 }

@@ -10,15 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const video = document.querySelector(".background-video");
 
-    const continueButton =
-        document.getElementById("continueButton");
-
-    const wishTransition =
-        document.getElementById("wishTransition");
-
-    const wishButton =
-        document.getElementById("wishButton");
-
     const soundButton =
         document.getElementById("soundButton");
 
@@ -56,8 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function nextSection() {
         if (currentIndex < sections.length - 1) {
             showSection(currentIndex + 1);
-        } else {
-            openWishTransition();
         }
     }
 
@@ -72,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("keydown", event => {
         if (event.key === "ArrowDown" || event.key === " " || event.key === "Enter") {
-            if (event.target.tagName === "BUTTON") return;
+            if (event.target.tagName === "BUTTON" || event.target.tagName === "A") return;
             event.preventDefault();
             nextSection();
         }
@@ -111,36 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    function goToBirthday() {
-    console.log("[betterme] Going to birthday page...");
-    window.location.assign("birthday.html");
-}
-
-    function openWishTransition() {
-        if (!wishTransition) {
-            goToBirthday();
-            return;
-        }
-        wishTransition.classList.add("show");
-        if (video) video.style.filter = "brightness(0.15) saturate(0.3)";
-    }
-
-    if (continueButton) {
-        continueButton.addEventListener("click", () => {
-            console.log("[betterme] Continue clicked — going to birthday");
-            goToBirthday();
-        });
-    } else {
-        console.error("[betterme] #continueButton not found");
-    }
-
-    if (wishButton) {
-        wishButton.addEventListener("click", () => {
-            console.log("[betterme] Wish button clicked");
-            goToBirthday();
-        });
-    }
-
     let soundOn = false;
     if (soundButton) {
         soundButton.addEventListener("click", () => {
@@ -157,10 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
         attributes: true,
         attributeFilter: ["class"]
     }));
-
-    document.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", e => e.stopPropagation());
-    });
 
     console.log("[betterme] ready — sections:", sections.length);
 });
