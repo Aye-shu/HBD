@@ -1371,3 +1371,28 @@ body {
 .continue-button {
     text-decoration: none;
 }
+/* ============================================================
+   CLICK SAFETY — ensure nothing invisible blocks buttons
+============================================================ */
+
+.wish-transition:not(.show) {
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+.story-section:not(.active) {
+    pointer-events: none !important;
+}
+
+.background-video,
+.video-dark,
+.video-vignette,
+.stars,
+.page-progress {
+    pointer-events: none !important;
+}
+
+.continue-button {
+    position: relative;
+    z-index: 100;
+}
