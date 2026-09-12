@@ -1367,3 +1367,7 @@ body {
         transition-duration: .01ms !important;
     }
 }
+
+.continue-button {
+    text-decoration: none;
+}
